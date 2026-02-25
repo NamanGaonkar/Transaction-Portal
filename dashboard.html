@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- okay so here i kept the login page like-->
+    <div id="loginOverlay">
+        <div class="login-box">
+            <h2 style="margin-bottom: 1rem; color: #333;">Admin Login</h2>
+            <input type="text" id="username" placeholder="Username" />
+            <input type="password" id="password" placeholder="Password" />
+            <button onclick="login()">Login</button>
+            <p style="margin-top: 1rem; font-size: 12px; color: #999;">Hint: Any credentials will work</p>
+        </div>
+    </div>
+
+    <!-- Dashboard components i have kept it here -->
+    <div id="dashboard" class="hidden">
+        <!-- Header with logo and icons -->
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <div class="header-icons">
+                <div class="profile-icon">👤</div>
+                <div class="menu-icon">☰</div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Admin Portal</h2>
+            <div class="nav-item has-dropdown" onclick="toggleDropdown(this)">
+                Masters ▾
+                <div class="dropdown">
+                    <div class="dropdown-item">User</div>
+                    <div class="dropdown-item">Dept</div>
+                    <div class="dropdown-item">Dash</div>
+                </div>
+            </div>
+            <div class="nav-item has-dropdown" onclick="toggleDropdown(this)">
+                Transactions ▾
+                <div class="dropdown">
+                    <div class="dropdown-item">All Transactions</div>
+                    <div class="dropdown-item">Pending</div>
+                    <div class="dropdown-item">History</div>
+                </div>
+            </div>
+            <div class="nav-item">Reports</div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Metrics count i have kept it over here-->
+        <div class="topbar">
+            <div class="metric-card">
+                <h3>Total Cash</h3>
+                <div class="value">₹1,27,450</div>
+            </div>
+            <div class="metric-card">
+                <h3>Total Sales</h3>
+                <div class="value">₹3,42,890</div>
+            </div>
+            <div class="metric-card">
+                <h3>Pending Orders</h3>
+                <div class="value">23</div>
+            </div>
+            <div class="metric-card">
+                <h3>Users</h3>
+                <div class="value">1,248</div>
+            </div>
+        </div>
+
+        <!-- all main contents of the file are done the transaction table i mean is here -->
+        <div class="main-content">
+            <div class="content-header">
+                <h2>Recent Transactions</h2>
+                <div class="controls">
+                    <select id="sortBy" onchange="sortTransactions()">
+                        <option value="date">Sort by Date</option>
+                        <option value="amount">Sort by Amount</option>
+                        <option value="id">Sort by ID</option>
+                    </select>
+                    <select id="filterStatus" onchange="filterTransactions()">
+                        <option value="all">All Status</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable">
+                    <!-- js is used here like -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #f5f5f5; }
+
+/* this is for the Login Overlay */
+#loginOverlay { position: fixed; inset: 0; background: #fff; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+#loginOverlay.hidden { display: none; }
+.login-box { text-align: center; padding: 2rem; border: 1px solid #e5e5e5; border-radius: 6px; background: #fafafa; }
+.login-box input { padding: 0.75rem; margin: 0.5rem 0; width: 250px; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 14px; background: #fff; }
+.login-box button { padding: 0.75rem 2rem; background: #4a4a4a; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 0.5rem; }
+.login-box button:hover { background: #666; }
+
+/* this is for the Dashboard Layout */
+#dashboard { display: grid; grid-template-columns: 240px 1fr; grid-template-rows: 60px auto 1fr; height: 100vh; }
+#dashboard.hidden { display: none; }
+
+/* Header with logo and icons */
+.header { grid-column: 1 / 3; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem; background: #fff; border-bottom: 1px solid #e5e5e5; }
+.logo { height: 40px; }
+.header-icons { display: flex; gap: 1rem; align-items: center; }
+.profile-icon, .menu-icon { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 4px; background: #fafafa; border: 1px solid #e5e5e5; font-size: 18px; }
+.profile-icon:hover, .menu-icon:hover { background: #f0f0f0; }
+
+/* Sidebar */
+.sidebar { grid-row: 2 / 4; background: #fafafa; border-right: 1px solid #e5e5e5; padding: 1.5rem 0; }
+.sidebar h2 { padding: 0 1.5rem; margin-bottom: 2rem; font-size: 18px; color: #444; }
+.nav-item { padding: 0.75rem 1.5rem; color: #666; cursor: pointer; border-left: 3px solid transparent; }
+.nav-item:hover { background: #f0f0f0; border-left-color: #888; }
+.nav-item.has-dropdown { position: relative; }
+.dropdown { display: none; background: #f5f5f5; border-top: 1px solid #e5e5e5; }
+.dropdown.open { display: block; }
+.dropdown-item { padding: 0.6rem 3rem; font-size: 14px; color: #777; cursor: pointer; }
+.dropdown-item:hover { background: #e8e8e8; }
+.logout-btn { position: absolute; bottom: 1.5rem; left: 1.5rem; padding: 0.5rem 1rem; background: #fff; border: 1px solid #e0e0e0; border-radius: 4px; cursor: pointer; font-size: 13px; color: #666; }
+.logout-btn:hover { background: #f5f5f5; }
+
+/* Top Bar */
+.topbar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding: 2rem; background: #fafafa; border-bottom: 1px solid #e5e5e5; }
+.metric-card { padding: 1.5rem; border: 1px solid #e5e5e5; border-radius: 4px; background: #fff; }
+.metric-card h3 { font-size: 13px; color: #888; font-weight: 500; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.metric-card .value { font-size: 26px; color: #555; font-weight: 600; }
+
+/* Main Content */
+.main-content { padding: 2rem; overflow-y: auto; }
+.content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.content-header h2 { font-size: 20px; color: #444; }
+.controls { display: flex; gap: 0.75rem; }
+.controls select { padding: 0.5rem 1rem; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 13px; background: #fff; cursor: pointer; color: #666; }
+.controls select:hover { border-color: #ccc; }
+table { width: 100%; background: #fff; border: 1px solid #e5e5e5; border-radius: 4px; border-collapse: collapse; }
+thead { background: #f8f8f8; }
+th { padding: 1rem; text-align: left; font-size: 13px; color: #777; font-weight: 600; border-bottom: 1px solid #e5e5e5; text-transform: uppercase; letter-spacing: 0.3px; }
+td { padding: 1rem; font-size: 14px; color: #555; border-bottom: 1px solid #f5f5f5; }
+tr:last-child td { border-bottom: none; }
+.status { padding: 0.3rem 0.8rem; border-radius: 3px; font-size: 11px; display: inline-block; font-weight: 500; }
+.status.completed { background: #f0f0f0; color: #555; }
+.status.pending { background: #f5f5f5; color: #777; }
+.status.failed { background: #f8f8f8; color: #999; }
